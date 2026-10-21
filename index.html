@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Libas Fashion — পোশাকে আপনার পরিচয়</title>
+  <meta name="description" content="Libas Fashion — পোশাকে আপনার পরিচয়। বাচ্চা থেকে বড়, সবার পোশাক। শিশুদের শীতকালীন কালেকশন শিগগিরই আসছে। সরাসরি WhatsApp-এ অর্ডার করুন।">
+  
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="bn_BD">
+  <meta property="og:title" content="Libas Fashion — পোশাকে আপনার পরিচয়">
+  <meta property="og:description" content="বাচ্চা থেকে বড়, সবার জন্য রুচিশীল ও মানসম্মত পোশাক। WhatsApp-এ সরাসরি অর্ডার করুন।">
+  <meta property="og:site_name" content="Libas Fashion">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Libas Fashion — পোশাকে আপনার পরিচয়">
+  <meta name="twitter:description" content="বাচ্চা থেকে বড়, সবার জন্য মানসম্মত পোশাক। সরাসরি WhatsApp-এ অর্ডার করুন।">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --pi: 3.14159;
+      --space: calc(var(--pi) * 4px);
+      --green: #153E2E;
+      --green-dark: #0D281E;
+      --green-light: #246349;
+      --sand: #F2EAD7;
+      --sand-light: #FAF8F2;
+      --gold: #C9A24B;
+      --text: #171A19;
+      --muted: #3E4B44;
+      --rainbow: linear-gradient(90deg, #e63946, #f4a261, #e7c547, #2a9d8f, #457b9d, #7209b7, #e63946);
+      --font-bn: 'Hind Siliguri', sans-serif;
+      --font-heading: 'Playfair Display', serif;
+    }
+
+    /* Soft Aurora Background */
+    .aurora-wrap {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .aurora-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.11;
+      animation: auroraFloat 18s ease-in-out infinite alternate;
+    }
+
+    .aurora-1 {
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, #e63946, #f4a261, transparent 70%);
+      top: -120px;
+      left: -100px;
+    }
+
+    .aurora-2 {
+      width: 560px;
+      height: 560px;
+      background: radial-gradient(circle, #2a9d8f, #457b9d, transparent 70%);
+      top: 35%;
+      right: -120px;
+      animation-delay: -6s;
+    }
+
+    .aurora-3 {
+      width: 460px;
+      height: 460px;
+      background: radial-gradient(circle, #7209b7, #C9A24B, transparent 70%);
+      bottom: 5%;
+      left: 10%;
+      animation-delay: -12s;
+    }
+
+    @keyframes auroraFloat {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(30px, 20px) scale(1.06); }
+      100% { transform: translate(-25px, 35px) scale(0.96); }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-bn);
+      color: var(--text);
+      background-color: var(--sand-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 calc(var(--space) * 2);
+    }
+
+    /* Header */
+    header {
+      padding: calc(var(--space) * 1.5) 0;
+      background: var(--sand-light);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid rgba(31, 77, 58, 0.1);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-family: var(--font-heading);
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      font-weight: 700;
+      color: var(--green);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .nav-tagline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      display: block;
+      line-height: 1;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: calc(var(--space) * 5) 0 calc(var(--space) * 4);
+      background: linear-gradient(180deg, var(--sand-light) 0%, var(--sand) 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: calc(var(--space) * 3);
+      align-items: center;
+    }
+
+    .hero-content {
+      max-width: 620px;
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: clamp(2.8rem, 7vw, 4.8rem);
+      color: var(--green);
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: calc(var(--space) * 0.5);
+    }
+
+    .rainbow-line {
+      width: 90px;
+      height: 4px;
+      background: var(--rainbow);
+      background-size: 200% auto;
+      animation: rainbowShift 4s linear infinite;
+      border-radius: 2px;
+      margin-bottom: calc(var(--space) * 1.5);
+    }
+
+    @keyframes rainbowShift {
+      0% { background-position: 0% center; }
+      100% { background-position: 200% center; }
+    }
+
+    .hero-tagline {
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 600;
+      color: var(--green-dark);
+      margin-bottom: calc(var(--space) * 0.8);
+    }
+
+    .hero-desc {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--muted);
+      margin-bottom: calc(var(--space) * 2.5);
+    }
+
+    .hero-card {
+      background: #ffffff;
+      border: 1px solid rgba(201, 162, 75, 0.3);
+      border-radius: calc(var(--space) * 1.5);
+      padding: calc(var(--space) * 3);
+      box-shadow: 0 10px 25px rgba(31, 77, 58, 0.06);
+      text-align: center;
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .hero-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(21, 62, 46, 0.1);
+      border-color: rgba(201, 162, 75, 0.55);
+    }
+
+    .winter-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 6px calc(var(--space) * 1.2);
+      border-radius: 20px;
+      margin-bottom: calc(var(--space) * 1.2);
+    }
+
+    .winter-preview {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--green);
+      margin-bottom: 8px;
+    }
+
+    .winter-sub {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    /* Buttons with rainbow border */
+    .btn-rainbow-wrap {
+      display: inline-block;
+      padding: 2.5px;
+      background: var(--rainbow);
+      background-size: 250% auto;
+      animation: rainbowShift 4s linear infinite;
+      border-radius: 50px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease;
+    }
+
+    .btn-rainbow-wrap:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 10px calc(var(--space) * 2.2);
+      background: var(--green);
+      color: #ffffff;
+      font-family: var(--font-bn);
+      font-size: 1.05rem;
+      font-weight: 600;
+      border-radius: 48px;
+      transition: background 0.2s ease;
+    }
+
+    .btn-rainbow-wrap:hover .btn-primary {
+      background: var(--green-light);
+    }
+
+    /* Categories */
+    .section {
+      padding: calc(var(--space) * 5) 0;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      color: var(--green);
+      text-align: center;
+      margin-bottom: calc(var(--space) * 0.5);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: calc(var(--space) * 3);
+      font-size: 1rem;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: calc(var(--space) * 2);
+    }
+
+    .category-card {
+      background: #ffffff;
+      border: 1px solid rgba(31, 77, 58, 0.12);
+      border-radius: calc(var(--space) * 1.2);
+      padding: calc(var(--space) * 2);
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(21, 62, 46, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(21, 62, 46, 0.09), 0 0 0 1px rgba(201, 162, 75, 0.35);
+      border-color: rgba(201, 162, 75, 0.45);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto calc(var(--space) * 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      background: var(--sand-light);
+      border-radius: 50%;
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .category-card:hover .card-icon {
+      transform: scale(1.08);
+      background: var(--green);
+      color: var(--sand);
+    }
+
+    .category-card h3 {
+      font-size: 1.25rem;
+      color: var(--green-dark);
+      margin-bottom: 6px;
+    }
+
+    .category-card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    .tag-soon {
+      display: inline-block;
+      margin-top: calc(var(--space) * 0.8);
+      padding: 4px 10px;
+      background: rgba(201, 162, 75, 0.2);
+      color: #8c6a1e;
+      border-radius: 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    /* How to Order */
+    .steps-section {
+      background: var(--sand);
+    }
+
+    .steps-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: calc(var(--space) * 2);
+    }
+
+    .step-item {
+      background: #ffffff;
+      padding: calc(var(--space) * 2);
+      border-radius: calc(var(--space) * 1.2);
+      border-top: 3px solid var(--gold);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(21, 62, 46, 0.04);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .step-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(21, 62, 46, 0.08);
+      border-top-color: var(--green);
+    }
+
+    .step-number {
+      width: 40px;
+      height: 40px;
+      background: var(--green);
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: var(--space);
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .step-item:hover .step-number {
+      transform: scale(1.08);
+      background: var(--gold);
+      color: var(--green-dark);
+    }
+
+    .step-item h4 {
+      font-size: 1.15rem;
+      color: var(--green-dark);
+      margin-bottom: 6px;
+    }
+
+    .step-item p {
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    /* Final CTA */
+    .cta-section {
+      text-align: center;
+      background: #ffffff;
+      padding: calc(var(--space) * 5) 0;
+    }
+
+    .cta-box {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--green-dark);
+      color: var(--sand);
+      padding: calc(var(--space) * 3) 0 calc(var(--space) * 2);
+      font-size: 0.9rem;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: var(--space);
+    }
+
+    .footer-brand {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-tagline {
+      color: var(--gold);
+      font-size: 0.95rem;
+    }
+
+    .footer-location {
+      color: rgba(244, 238, 220, 0.7);
+    }
+
+    /* Floating WhatsApp Button */
+    .floating-wa {
+      position: fixed;
+      bottom: calc(var(--space) * 2);
+      right: calc(var(--space) * 2);
+      width: 54px;
+      height: 54px;
+      background: #25D366;
+      color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 999;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .floating-wa:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    }
+
+    /* Reveal animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .rainbow-line, .btn-rainbow-wrap, .aurora-blob {
+        animation: none !important;
+      }
+    }
+
+    /* Responsive */
+    @media (min-width: 768px) {
+      .hero-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: calc(var(--space) * 4);
+      }
+      .categories-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .steps-row {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Soft Aurora Background -->
+  <div class="aurora-wrap" aria-hidden="true">
+    <div class="aurora-blob aurora-1"></div>
+    <div class="aurora-blob aurora-2"></div>
+    <div class="aurora-blob aurora-3"></div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-inner">
+      <a href="#" class="brand-logo">LIBAS <span class="nav-tagline">পোশাকে আপনার পরিচয়</span></a>
+      <a href="https://wa.me/8801XXXXXXXXX?text=%E0%A6%86%E0%A6%AE%E0%A6%BF%20Libas%20Fashion%20%E0%A6%A5%E0%A7%87%E0%A6%95%E0%A7%87%20%E0%A6%AA%E0%A7%8B%E0%A6%B6%E0%A6%BE%E0%A6%95%20%E0%A6%B8%E0%A6%AE%E0%A7%8D%E0%A6%AA%E0%A6%B0%E0%A7%8D%E0%A6%95%E0%A7%87%20%E0%A6%9C%E0%A6%BE%E0%A6%A8%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A7%A4" target="_blank" rel="noopener" class="btn-rainbow-wrap">
+        <span class="btn-primary" style="padding: 6px 16px; font-size: 0.9rem; min-height: 38px;">
+          <i data-lucide="message-circle" style="width: 16px; height: 16px;"></i> WhatsApp
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content reveal">
+        <h1 class="hero-title">LIBAS</h1>
+        <div class="rainbow-line"></div>
+        <p class="hero-tagline">পোশাকে আপনার পরিচয়</p>
+        <p class="hero-desc">বাচ্চা থেকে বড়, সবার পোশাক — স্বাচ্ছন্দ্য ও আধুনিক ফ্যাশনের এক অনন্য মেলবন্ধন।</p>
+        <a href="https://wa.me/8801XXXXXXXXX?text=%E0%A6%B8%E0%A6%B2%E0%A6%BE%E0%A6%AE%2C%20%E0%A6%86%E0%A6%AE%E0%A6%BF%20Libas%20Fashion%20%E0%A6%8F%20%E0%A6%85%E0%A6%B0%E0%A7%8D%E0%A6%A1%E0%A6%BE%E0%A6%B0%20%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A7%A4" target="_blank" rel="noopener" class="btn-rainbow-wrap">
+          <span class="btn-primary">
+            <i data-lucide="message-circle"></i> WhatsApp-এ অর্ডার করুন
+          </span>
+        </a>
+      </div>
+
+      <div class="hero-card reveal">
+        <div class="winter-badge">
+          <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i> শীতের বিশেষ কালেকশন
+        </div>
+        <h3 class="winter-preview">শিশুদের শীতবস্ত্র আসছে শিগগিরই</h3>
+        <p class="winter-sub">আরামদায়ক সোয়েটার, জ্যাকেট, টুপি ও মোজা নিয়ে আমাদের নতুন উইন্টার ড্রপ খুব শীঘ্রই উন্মোচিত হতে যাচ্ছে।</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title reveal">পোশাকের বিভাগসমূহ</h2>
+      <p class="section-subtitle reveal">সবার রুচিশীল পছন্দের সেরা সমাধান</p>
+      <div class="categories-grid">
+        <div class="category-card reveal">
+          <div class="card-icon"><i data-lucide="smile"></i></div>
+          <h3>বাচ্চা</h3>
+          <p>শিশুদের কোমল ও মানসম্মত পোশাক</p>
+          <span class="tag-soon">শীতের কালেকশন শিগগিরই</span>
+        </div>
+        <div class="category-card reveal">
+          <div class="card-icon"><i data-lucide="shirt"></i></div>
+          <h3>ছেলে</h3>
+          <p>ছেলেদের ট্রেন্ডি ও ক্যাজুয়াল কালেকশন</p>
+        </div>
+        <div class="category-card reveal">
+          <div class="card-icon"><i data-lucide="heart"></i></div>
+          <h3>মেয়ে</h3>
+          <p>মেয়েদের আকর্ষণীয় ও মার্জিত পোশাক</p>
+        </div>
+        <div class="category-card reveal">
+          <div class="card-icon"><i data-lucide="users"></i></div>
+          <h3>বড়দের</h3>
+          <p>সকল বয়সের জন্য প্রিমিয়াম পোশাক</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How to Order -->
+  <section class="section steps-section">
+    <div class="container">
+      <h2 class="section-title reveal">কীভাবে অর্ডার করবেন?</h2>
+      <p class="section-subtitle reveal">৩টি সহজ ধাপে আপনার কাঙ্ক্ষিত পোশাক সংগ্রহ করুন</p>
+      <div class="steps-row">
+        <div class="step-item reveal">
+          <div class="step-number">১</div>
+          <h4>ছবি পাঠান</h4>
+          <p>পছন্দের পোশাকের ছবি অথবা বিবরণ আমাদের WhatsApp-এ পাঠান।</p>
+        </div>
+        <div class="step-item reveal">
+          <div class="step-number">২</div>
+          <h4>সাইজ ও ঠিকানা দিন</h4>
+          <p>প্রয়োজনীয় সাইজ এবং ডেলিভারির সঠিক ঠিকানা মেসেজে জানিয়ে দিন।</p>
+        </div>
+        <div class="step-item reveal">
+          <div class="step-number">৩</div>
+          <h4>ডেলিভারি নিন</h4>
+          <p>নিশ্চিত করার পর দ্রুততম সময়ে আপনার ঠিকানায় পার্সেল পৌঁছে যাবে।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box reveal">
+        <h2 class="section-title">পছন্দের পোশাকটি বেছে নিন আজই</h2>
+        <p class="section-subtitle">আমাদের সাথে সরাসরি WhatsApp-এ যোগাযোগ করে এখনই অর্ডার কনফার্ম করুন।</p>
+        <a href="https://wa.me/8801XXXXXXXXX?text=%E0%A6%B8%E0%A6%B2%E0%A6%BE%E0%A6%AE%2C%20%E0%A6%86%E0%A6%AE%E0%A6%BF%20Libas%20Fashion%20%E0%A6%8F%20%E0%A6%85%E0%A6%B0%E0%A7%8D%E0%A6%A1%E0%A6%BE%E0%A6%B0%20%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A7%A4" target="_blank" rel="noopener" class="btn-rainbow-wrap">
+          <span class="btn-primary" style="font-size: 1.15rem; padding: 12px 28px;">
+            <i data-lucide="message-circle"></i> WhatsApp-এ মেসেজ পাঠান
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-brand">LIBAS FASHION</div>
+      <div class="footer-tagline">পোশাকে আপনার পরিচয়</div>
+      <div class="footer-location">[Area, Dhaka], বাংলাদেশ</div>
+      <p style="opacity: 0.6; font-size: 0.8rem; margin-top: 8px;">&copy; <span id="year"></span> Libas Fashion. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a href="https://wa.me/8801XXXXXXXXX?text=%E0%A6%B8%E0%A6%B2%E0%A6%BE%E0%A6%AE%2C%20%E0%A6%86%E0%A6%AE%E0%A6%BF%20Libas%20Fashion%20%E0%A6%8F%E0%A6%B0%20%E0%A6%B8%E0%A6%BE%E0%A6%A5%E0%A7%87%20%E0%A6%AF%E0%A7%8B%E0%A6%97%E0%A6%BE%E0%A6%AF%E0%A7%8B%E0%A6%97%20%E0%A6%95%E0%A6%B0%E0%A6%A4%E0%A7%87%20%E0%A6%9A%E0%A6%BE%E0%A6%87%E0%A7%A4" target="_blank" rel="noopener" class="floating-wa" aria-label="WhatsApp-এ যোগাযোগ করুন">
+    <i data-lucide="message-circle" style="width: 28px; height: 28px;"></i>
+  </a>
+
+  <!-- Script -->
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Dynamic Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll reveal observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
